@@ -89,6 +89,8 @@ Selectize.define("clear_button", function (options) {
         if (self.isLocked) return;
 
         self.clear();
+        this.$input.trigger('input');
+        this.$input.trigger('change');
         self.$wrapper.find("." + options.className).css("display", "none");
       });
     };
