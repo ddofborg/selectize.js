@@ -42,7 +42,9 @@ Selectize.define("split_new_line_onpaste", function (options) {
 			}
 			// create new elements
 			for (var i = 0, n = splitInput.length; i < n; i++) {
-				self.createItem(splitInput[i]);
+				if(!self.createItem(splitInput[i])) {
+					self.addItem(splitInput[i]);
+				}
 			}
 
 			return originalPaste.apply(this, arguments);
